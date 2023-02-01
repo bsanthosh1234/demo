@@ -94,7 +94,16 @@
 #     echo "Directory creation not needed"
 # fi
 
+#8
+#   8) Write a Shell Script with Switch Case which will print the contents of the Given Base Directories. 
+#   (Directory Name has to be sent as a Argument).
 
+read -p "enter the directory":directory
+case "$directory" in
+
+"Doc") ls mnt/c/Users/USER/Documents
+    ;;
+    
 
 # #9
 # read -p "enter the name:" name
