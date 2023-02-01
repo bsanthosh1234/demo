@@ -1,1 +1,0 @@
-copying from this path assignment/assign1/new1.txt   ->assignment/assign2/new1.txt
