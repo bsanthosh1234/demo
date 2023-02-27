@@ -1,8 +1,8 @@
 let transactions = [];
-filteredTransactionsAfter = { "table": [] }
+filteredTransactionsAfter = {  }
 let data = []
 let transactionsToDisplay = []
-const endpoint = "http://localhost:8600/";
+const endpoint = "http://localhost:8700/";
 
 const balanceDisplay = document.getElementById("balance");
 const incomeDisplay = document.getElementById("income");
@@ -20,8 +20,8 @@ function temp(data) {
     })
     filterForm.addEventListener("submit", function (event) {
         event.preventDefault();
-        console.log("called filter")
-        console.log("table", data.table)
+        // console.log("called filter")
+        // console.log("table", data.table)
         // Get the form values
         const category = filterForm.elements["category"].value;
         const startDate = filterForm.elements["start-date"].value;
@@ -31,7 +31,7 @@ function temp(data) {
         const maxAmount = parseFloat(filterForm.elements["max-amount"].value);
 
         //Filter the transactions array by the form values and update the transactions table
-        filteredTransactionsAfter.table = data["table"].filter(function (transaction) {
+        filteredTransactionsAfter = data.filter(function (transaction) {
             if (category && transaction.category !== category) {
                 return false;
             }
@@ -70,7 +70,7 @@ function updateTransactionTable(filteredTransactions) {
     let balance = 0;
     let income=0;
     let expense=0;
-    transactionsToDisplay.table.forEach(function (transaction, index) {
+    transactionsToDisplay.forEach(function (transaction, index) {
         // Add a row to the table
         const row = transactionTable.insertRow(-1);
         row.insertCell(0).textContent = transaction.date;
@@ -109,7 +109,7 @@ function updateTransactionTable(filteredTransactions) {
 
 }
 (async function () {
-    await fetch(endpoint+"data")
+    await fetch(endpoint+"data1")
     .then((response) => response.json())
     .then((data) => {
         console.log(data)
